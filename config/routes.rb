@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   root to: "sessions#welcome"
-  get '/login' to: "sessions#new"
-  post 'login' to: "sessions#create"
-  get "/signup" to: "users#new"
+  get '/login', to: "sessions#new"
+  post 'login', to: "sessions#create"
+  get "/signup", to: "users#new"
    #the resourse :users gives us the post users for users create
 
   resources :reviews
