@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new"
    #the resourse :users gives us the post users for users create
 
+  delete '/logout', to: "sessions#destroy"
+
   resources :reviews
   resources :restaurants
   resources :users
