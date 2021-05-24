@@ -27,6 +27,20 @@ in the restaurant controller
           accept_nested_attributes_for :category
 
 
+In reviews/new.html.erb
+make a helper method for:
+<% if params[:restaurant_id] %>
+    <h2>Create a new review for:   <%= @restaurant.restaurant_name %></h2>
+<% else %>  
+    <h2>Create a review: </h2>
+<% end %>
+
+If you have the restaurnt id - write a review for them
+If we dont have the restaurant id - give a drop down in the form of other restaurants
+
+
+
+
 
             Prefix Verb   URI Pattern                  Controller#Action
             root GET    / sessions#welcome
