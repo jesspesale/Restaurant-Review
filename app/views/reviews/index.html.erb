@@ -1,1 +1,15 @@
-reviews/index.html.erb
+<h1>All the reviews</h1>
+
+<ol>
+<% @reviews.each do |review| %>
+<li><h4>Review for <%= review.restaurant.restaurant_name %> </h4></li>
+    <ul>
+   <li>Rating: <%= review.rating %></li>
+    <br>
+    <li>Description: <%= review.content %></li> 
+    </ul>
+    
+    <br>
+    <% end %>
+</ul>
+
