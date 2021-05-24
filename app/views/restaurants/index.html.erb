@@ -2,6 +2,9 @@
 
 <ol>
     <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.restaurant_name %></li>
+    <li>
+    <%= restaurant.restaurant_name %>
+    <%= link_to "Review #{restaurant.restaurant_name}", new_restaurant_review_path(restaurant) %>
+    </li>
     <% end %>
 </ol>
