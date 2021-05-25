@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-    has_many :reviews
+    has_many :reviews, dependent: :destroy
+    #if a user gets deleted, all reviews associated to them will get deleted as well
     has_many :restaurants, through: :reviews
 
     validates :email, uniqueness: true, presence: true
