@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    before_action :require_login, except: [:index, :show]
 
     def new
         if @restaurant = Restaurant.find_by_id(params[:restaurant_id])
