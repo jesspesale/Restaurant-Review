@@ -1,4 +1,7 @@
 class RestaurantsController < ApplicationController
+    before_action :require_login, except: [:index, :show]
+    # before_action :authenticate_user, except: [:index, :show]
+        # makes sure a user is signed in before clicking link or else sent to sign in page
 
     def index
         @restaurants = Restaurant.all
