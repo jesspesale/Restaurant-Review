@@ -1,3 +1,12 @@
+<% if !logged_in? %>
+    <br>
+    <h3>Make Sure you Log in or Sign up to add any restaurants</h3>
+    <%= link_to "Sign Up", signup_path  %>
+    <br>
+    <%= link_to "Log In", login_path %>
+<% end %>
+
+
 <h1>All the Restaurants</h1>
 
 <ol>
