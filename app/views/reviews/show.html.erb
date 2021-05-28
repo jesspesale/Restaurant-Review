@@ -1,5 +1,13 @@
 
 <h1>Review for - <%= @review.restaurant.restaurant_name %></h1>
-
+<br>
+<h2>Rating (1-5): <%= @review.rating %>
 <h2>Description: <%= @review.content %></h2>
-<h3>Rating (1-5): <%= @review.rating %></h3>
+
+<br>
+<p><strong>User:</strong> <%= @review.user.email %></p>
+
+<br>
+<br>
+   <!-- <%= link_to "Delete this review", review_path(@review), method: 'delete' %> -->
+   

@@ -11,6 +11,10 @@
 
 Then in the new action for categories
 
+Add a link to delete reviews (only if you created it)
+    <!-- <%= link_to "Delete this review", review_path @review, method: 'delete' %> -->
+
+
 in the restaurant controller
      def new
           @category = Category.new

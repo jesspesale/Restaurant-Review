@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :restaurants, through: :reviews
 
     validates :email, uniqueness: true, presence: true
+    validates :name, presence: true
 
     has_secure_password
         # gives us .authenticate method
