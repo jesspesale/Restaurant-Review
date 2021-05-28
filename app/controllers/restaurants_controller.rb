@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
     def create
         @restaurant = Restaurant.new(restaurant_params)
         # @restaurant.user_id = session[:user_id]     #do I need this?
-        if @restaurant.save
+        if @restaurant.save #where validations happen
             redirect_to restaurant_path(@restaurant)
         else
             render :new
@@ -23,6 +23,7 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find_by(id: params[:id])
+        @user = current_user.id
     end
 
 
