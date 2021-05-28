@@ -1,3 +1,7 @@
+ 
+ validates_uniqueness_of :restaurant_id, :scope => :user_id, message: "has already been reviewed."
+ Validates that a user already reviewed this restaurant??
+ 
  <p>Pick a Category that already exists: </p>
     <%= f.label :category %>
     <%= f.collection_select :category_id, Category.all, :id, :name%>
