@@ -1,7 +1,12 @@
 <h1><%= @restaurant.restaurant_name %></h1>
 
+<h2>City: <%= @restaurant.city %></h2>
+<h2>State: <%= @restaurant.state %></h2>
+<br>
 
-
+<%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
+<br>
+<br>
 
 
 <%= link_to "Back to Home", user_path(@user) %>
