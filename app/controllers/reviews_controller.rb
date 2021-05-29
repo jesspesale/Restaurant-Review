@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :require_login, except: [:index, :show]
+    before_action :require_login  #, except: [:index, :show]
    
     #before_action !:authenticate_user ??
 
@@ -25,8 +25,8 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        # @review = Review.new(review_params)
         @review = current_user.reviews.build(review_params)
+        # @review = Review.new(review_params)  - can also do this
         # @review.user_id = current_user.id
             # When a user writes a new review, the user id will be assigned to them
         if @review.save 
