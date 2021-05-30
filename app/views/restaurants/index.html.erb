@@ -13,10 +13,18 @@
     <% @restaurants.each do |restaurant| %>
     <li>
     <%= restaurant.restaurant_name %>
+    <br>
+    <ul>
+    <li>Cuisine: <%= restaurant.cuisine.name %></li>
+    <li>City: <%= restaurant.city %></li>
+    </ul>
+    <br>
     <%= link_to "Review #{restaurant.restaurant_name}", new_restaurant_review_path(restaurant) %>
     </li>
+    <br>
     <% end %>
 </ol>
+
 
 <br>
 

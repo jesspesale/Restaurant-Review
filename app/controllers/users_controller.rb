@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        # byebug
         @user = User.find_by_id(params[:id])
         @restaurants = Restaurant.all
         # redirect_to users_path if !@user

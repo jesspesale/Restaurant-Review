@@ -20,7 +20,7 @@
     <br>
     <br>
     <h3>Select a Cuisine for this Restaurant</h3>
-    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name %>
+    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: true%>
     
     <br>
     <br>
