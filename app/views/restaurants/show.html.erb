@@ -4,8 +4,11 @@
 <h2>State: <%= @restaurant.state %></h2>
 <h2>Cuisine: <%= @restaurant.cuisine.name %></h2>
 <br>
-
+<br>
+<%= link_to "Edit #{@restaurant.restaurant_name}", edit_restaurant_path(@restaurant) %>
+<br>
 <%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
+
 <br>
 <br>
 

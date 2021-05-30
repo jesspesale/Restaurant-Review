@@ -8,6 +8,10 @@ class RestaurantsController < ApplicationController
         @restaurants = Restaurant.all
     end
 
+    def show
+        @user = current_user.id
+    end
+
     def new
         @restaurant = Restaurant.new
         @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
@@ -23,10 +27,21 @@ class RestaurantsController < ApplicationController
         end
     end
 
-    def show
-        @user = current_user.id
+    def edit
+
     end
 
+    def update
+        if @restaurant.update(restaurant_params)
+            redirect_to restaurant_path(@restaurant)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+
+    end
 
     private
 
@@ -37,5 +52,5 @@ class RestaurantsController < ApplicationController
     def find_restaurant
         @restaurant = Restaurant.find_by(id: params[:id])
     end
-    
+
 end
