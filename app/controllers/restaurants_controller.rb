@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
     before_action :require_login, except: [:index, :show]
+    before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
     # before_action :authenticate_user, except: [:index, :show]
         # makes sure a user is signed in before clicking link or else sent to sign in page
 
@@ -23,7 +24,6 @@ class RestaurantsController < ApplicationController
     end
 
     def show
-        @restaurant = Restaurant.find_by(id: params[:id])
         @user = current_user.id
     end
 
@@ -33,4 +33,9 @@ class RestaurantsController < ApplicationController
     def restaurant_params
         params.require(:restaurant).permit(:restaurant_name, :address, :city, :state, cuisine_attributes: [:name])
     end
+
+    def find_restaurant
+        @restaurant = Restaurant.find_by(id: params[:id])
+    end
+    
 end

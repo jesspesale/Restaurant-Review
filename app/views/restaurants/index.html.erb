@@ -12,7 +12,7 @@
 <ol>
     <% @restaurants.each do |restaurant| %>
     <li>
-    <%= restaurant.restaurant_name %>
+    <%= link_to restaurant.restaurant_name, restaurant_path(restaurant) %>
     <br>
     <ul>
     <li>Cuisine: <%= restaurant.cuisine.name %></li>
@@ -25,11 +25,10 @@
     <% end %>
 </ol>
 
-
 <br>
 
 <br>
 
 <br>
 
-<%= link_to "Add another Restaurant", new_restaurant_path %>
+<%= link_to "Add Restaurant", new_restaurant_path %>
