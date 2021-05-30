@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
 
     def new
         @restaurant = Restaurant.new
+        @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
     end
 
     def create
@@ -30,6 +31,6 @@ class RestaurantsController < ApplicationController
     private
 
     def restaurant_params
-        params.require(:restaurant).permit(:restaurant_name, :address, :city, :state, :category)
+        params.require(:restaurant).permit(:restaurant_name, :address, :city, :state, cuisine_attributes: [:name])
     end
 end

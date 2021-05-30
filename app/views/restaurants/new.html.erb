@@ -19,10 +19,16 @@
     <%= f.text_field :state %>
     <br>
     <br>
-    <%= f.label :category %>
-    <%= f.text_field :category%>
+    <h3>Select a Cuisine for this Restaurant</h3>
+    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name %>
+    
     <br>
     <br>
+    <h3>Or create a new Cuisine: </h3>
+        <%= f.fields_for :cuisine, Cuisine.new do |c| %>
+        <%= c.label :name, "Cuisine Name:" %>
+        <%= c.text_field :name %>
+    <% end %>
     <%= f.submit "Create Restaurant" %>
     <br>
 <% end %>
