@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
     before_action :require_login, except: [:index, :show]
     before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+    before_action :current_user
     # before_action :authenticate_user, except: [:index, :show]
         # makes sure a user is signed in before clicking link or else sent to sign in page
 
@@ -40,7 +41,9 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-
+        # byebug
+        @restaurant.destroy
+        redirect_to user_path(@current_user)
     end
 
     private

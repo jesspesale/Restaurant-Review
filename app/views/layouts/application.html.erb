@@ -11,12 +11,28 @@
   </head>
     <%= render "layouts/header" %>
   <body>
-    <div> <!--nav bar components -->
-    <%= link_to "Log Out", logout_path, method: :delete %>
-    <%= link_to "Add a Restaurant", new_restaurant_path %>
-    <%= link_to "View all Restaurants", restaurants_path %>
-    <%= link_to "View all Reviews", reviews_path %>
-  </div>
+    <nav class="navbar navbar-default"> <!--nav bar components -->
+    <div class="container">
+      <!-- container add margin the the left and right of content and centers it -->
+    <div class="navbar-header">
+
+        
+    <ul class="nav navbar-nav">
+    <li><%= link_to "View all Restaurants", restaurants_path %></li>
+    <li><%= link_to "Add a Restaurant", new_restaurant_path %></li>
+    <li><%= link_to "View all Reviews", reviews_path %> </li>
+    <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+      <% if logged_in? %>
+        <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "Log In", login_path %> </li>
+      <% end %>
+    </ul>
+
+    </div>
+    </div>
+
+  </nav>
     <%= yield %>
   </body>
 </html>
