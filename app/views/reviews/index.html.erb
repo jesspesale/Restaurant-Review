@@ -2,7 +2,7 @@
 
 <ol>
 <% @reviews.each do |review| %>
-<li><h4>Reviews for <%= review.restaurant.restaurant_name %> </h4></li>
+<li><h4>Review for <%= review.restaurant.restaurant_name %> </h4></li>
     <ul>
     <li>Rating: <%= review.rating %></li>
     <li>Description: <%= review.content %></li> 
