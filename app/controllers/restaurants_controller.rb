@@ -16,14 +16,14 @@ class RestaurantsController < ApplicationController
     end
 
     def new
-        # @restaurant = Restaurant.new
-        @restaurant = current_user.restaurants.build
+        @restaurant = Restaurant.new
+        # @restaurant = current_user.restaurants.build
         @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
     end
 
     def create
-        # @restaurant = Restaurant.new(restaurant_params)
-        @restaurant = current_user.restaurants.build(restaurant_params)
+         @restaurant = Restaurant.new(restaurant_params)
+        # @restaurant = current_user.restaurants.build(restaurant_params)
         # @restaurant.user_id = session[:user_id]     #do I need this?
         if @restaurant.save #where validations happen
             redirect_to restaurant_path(@restaurant)
