@@ -1,20 +1,12 @@
-<% if !logged_in? %>
-    <br>
-    <h3>Make Sure you Log in or Sign up if you want to review any restaurants</h3>
-    <%= link_to "Sign Up", signup_path  %>
-    <br>
-    <%= link_to "Log In", login_path %>
-<% end %>
-
 <h1>All the reviews</h1>
 
 <ol>
 <% @reviews.each do |review| %>
-<li><h4>Review for <%= review.restaurant.restaurant_name %> </h4></li>
+<li><h4>Reviews for <%= review.restaurant.restaurant_name %> </h4></li>
     <ul>
-   <li>Rating: <%= review.rating %></li>
-    <br>
+    <li>Rating: <%= review.rating %></li>
     <li>Description: <%= review.content %></li> 
+    <li>Posted by: <%= review.user.name %></li> 
     </ul>
 
     
@@ -22,3 +14,12 @@
     <% end %>
 </ul>
 
+<br>
+<br>
+<% if !logged_in? %>
+    <br>
+    <p>Make Sure you Log in or Sign up if you want to add a new review</p>
+    <%= link_to "Sign Up", signup_path  %>
+    <br>
+    <%= link_to "Log In", login_path %>
+<% end %>

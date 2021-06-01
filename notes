@@ -11,7 +11,8 @@
     <h4> You have not added any Restaurants yet.</h4>
 <% end %>
 
- 
+ On review Index page - show which user created that review
+
  
  
  validates_uniqueness_of :restaurant_id, :scope => :user_id, message: "has already been reviewed."
