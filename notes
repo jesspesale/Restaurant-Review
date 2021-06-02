@@ -31,10 +31,6 @@
 
 Then in the new action for categories
 
-Add a link to delete reviews (only if you created it)
-    <!-- <%= link_to "Delete this review", review_path @review, method: 'delete' %> -->
-
-
 in the restaurant controller
      def new
           @category = Category.new
@@ -61,6 +57,7 @@ make a helper method for:
 
 If you have the restaurnt id - write a review for them
 If we dont have the restaurant id - give a drop down in the form of other restaurants
+
 
 
 

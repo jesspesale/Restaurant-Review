@@ -1,0 +1,34 @@
+   <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: true%>
+
+<%= form_for @restaurant do |f| %>
+    <%= f.label :restaurant_name %>
+    <%= f.text_field :restaurant_name %>
+    <br>
+    <br>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <br>
+    <br>
+    <%= f.label :city %>
+    <%= f.text_field :city%>
+    <br>
+    <br>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+    <br>
+    <br>
+    <h3>Select a Cuisine for this Restaurant</h3>
+    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: true %>
+    
+    <br>
+    <br>
+    <h3>Or create a new Cuisine: </h3>
+        <%= f.fields_for :cuisine do |c| %>
+            <%= c.label :name, "Cuisine Name:" %>
+            <%= c.text_field :name %>
+    <% end %>
+    <br>
+    <br>
+    <%= f.submit %>
+    <br>
+<% end %>
