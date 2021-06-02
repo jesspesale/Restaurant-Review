@@ -5,15 +5,20 @@
 <h2>Cuisine: <%= @restaurant.cuisine.name %></h2>
 <br>
 <br>
-<%= link_to "Edit", edit_restaurant_path(@restaurant) %>
-<%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{@restaurant.restaurant_name}?" } %>
-<br>
+
+<% if logged_in? %>
+
+    <% if @restaurant.user_id == current_user.id %>
+        <%= link_to "Edit", edit_restaurant_path(@restaurant) %>
+        <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{@restaurant.restaurant_name}?" } %>
+    <br>
+    <% end %>
+<% end %>
+
 <br>
 <%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
 
 <br>
 <br>
 
-
-
-<%= link_to "Back to Homepage", user_path(@user) %>
+<%= link_to "Back", restaurants_path %>

@@ -1,37 +1,18 @@
+<% if !logged_in? %>
+    <br>
+    <div class="container">
+    <h4>Make Sure you Log in or Sign up if you want to add a restaurants</h4>
+    <%= link_to "Sign Up", signup_path  %>
+    <br>
+    <%= link_to "Log In", login_path %>
+    </div>
+<% else %>
+
 <h1>Add a new Restaurant: </h1>
 
 <%= render partial: 'layouts/error_messages', locals: {instance: @restaurant} %>
 
-<%= form_for @restaurant do |f| %>
-    <%= f.label :restaurant_name %>
-    <%= f.text_field :restaurant_name %>
-    <br>
-    <br>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-    <br>
-    <br>
-    <%= f.label :city %>
-    <%= f.text_field :city%>
-    <br>
-    <br>
-    <%= f.label :state %>
-    <%= f.text_field :state %>
-    <br>
-    <br>
-    <h3>Select a Cuisine for this Restaurant</h3>
-    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: true%>
-    
-    <br>
-    <br>
-    <h3>Or create a new Cuisine: </h3>
-        <%= f.fields_for :cuisine, Cuisine.new do |c| %>
-        <%= c.label :name, "Cuisine Name:" %>
-        <%= c.text_field :name %>
-    <% end %>
-    <br>
-    <br>
-    <%= f.submit "Create Restaurant" %>
-    <br>
-<% end %>
+<%= render 'form' %>
 
+
+<% end %>
