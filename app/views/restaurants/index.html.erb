@@ -7,18 +7,25 @@
     <ul>
     <li>Cuisine: <%= restaurant.cuisine.name %></li>
     <li>City: <%= restaurant.city %></li>
-
     </ul>
     <br>
     <%= link_to "Review #{restaurant.restaurant_name}", new_restaurant_review_path(restaurant) %>
+    <br>
+
+<% if logged_in? %>
+
+    <% if restaurant.user_id == current_user.id %>
+        <%= link_to "Edit", edit_restaurant_path(restaurant) %>  or  
+        <%= link_to "Delete", restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{restaurant.restaurant_name}?" } %>
+    <br>
+    <% end %>
+<% end %>
+
     </li>
     <br>
     <br>
     <% end %>
 </ol>
-<br>
-<%= link_to "Add a new Restaurant", new_restaurant_path %>
-
 <br>
 <br>
 <% if !logged_in? %>
@@ -29,4 +36,7 @@
     <br>
     <%= link_to "Log In", login_path %>
     </div>
+<% else %>
+    <%= link_to "Add a new Restaurant", new_restaurant_path %>
 <% end %>
+
