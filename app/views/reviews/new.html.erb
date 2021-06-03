@@ -1,25 +1,4 @@
 
 <h2>Create a new review for:   <%= @restaurant.restaurant_name %></h2>
 
-<%= render partial: 'layouts/error_messages', locals: {instance: @review} %>
-
-
-<%= form_for @review do |f| %>
-    <br>
-    <%= f.label "Rating : " %>
-       <%= f.radio_button :rating, "1"  %> 1
-       <%= f.radio_button :rating, "2"  %> 2
-       <%= f.radio_button :rating, "3"  %> 3
-       <%= f.radio_button :rating, "4"  %> 4
-       <%= f.radio_button :rating, "5"  %> 5
-    <br>
-    <br>
-    <%= f.label :content, "Description" %>
-    <%= f.text_area :content, size: "30x5" %>
-    <br>
-    <br>
-    <%= f.hidden_field :restaurant_id %>
-    <br>
-    <br>
-    <%= f.submit "Submit Review" %>
-<% end %>
+<%= render 'form' %>

@@ -32,3 +32,33 @@
     <%= f.submit %>
     <br>
 <% end %>
+
+
+
+Can put this in the create action instead of the 2 lines
+ @review = current_user.reviews.build(review_params)
+
+
+ Review new form
+ 
+<%= form_for @review do |f| %>
+    <br>
+    <%= f.label "Rating : " %>
+       <%= f.radio_button :rating, "1"  %> 1
+       <%= f.radio_button :rating, "2"  %> 2
+       <%= f.radio_button :rating, "3"  %> 3
+       <%= f.radio_button :rating, "4"  %> 4
+       <%= f.radio_button :rating, "5"  %> 5
+    <br>
+    <br>
+    <%= f.label :content, "Description" %>
+    <%= f.text_area :content, size: "30x5" %>
+    <br>
+    <br>
+    <%= f.hidden_field :restaurant_id %>
+    <br>
+    <br>
+    <%= f.submit "Submit Review" %>
+<% end %>
+
+

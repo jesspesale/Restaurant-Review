@@ -45,9 +45,14 @@ Specs:
 	
         Restaurants/1/reviews
 
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-	
+  resources :restaurants do 
+    resources :reviews, only: [:new, :index]
+  end
 
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+	
+    restaurants/1/reviews/new
+    a new review for "Swell Taco"
 
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 

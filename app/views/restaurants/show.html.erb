@@ -16,8 +16,24 @@
 <% end %>
 
 <br>
+<div class="row">
+
+	<div class="col-md-4">
+
+		<div class="reviews">
+        <h2 class="container">Reviews</h2>
+    <%= render @restaurant.reviews %>
+<!-- will render all the reviews for this restaurant from review partial-->
+
+<br>
+
 <%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
 
+		</div>	
+
+	</div>
+
+</div>
 <br>
 <br>
 

@@ -34,7 +34,7 @@
         <ul class="dropdown-menu" role="menu">
           <% Cuisine.all.each do |cuisine| %>
           <li>
-          <%= link_to cuisine.name, restaurants_path(cuisine: cuisine.name), class: "link" %>
+          <%= link_to cuisine.name, restaurants_path(cuisine.name), class: "link" %>
           </li>
           <% end %>
         </ul>
