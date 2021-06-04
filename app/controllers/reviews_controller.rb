@@ -36,13 +36,14 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        @restaurant = Restaurant.find_by(id: params[:id])
         @review = Review.find_by_id(params[:id])
     end
 
     def update
-        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        @restaurant = Restaurant.find_by(id: params[:id])
         @review = Review.find_by_id(params[:id])
+        # byebug
         if @review.update(review_params)
             redirect_to restaurant_path(@restaurant)
         else

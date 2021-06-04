@@ -62,3 +62,9 @@ Can put this in the create action instead of the 2 lines
 <% end %>
 
 
+
+Was in Restaurant Create action
+
+        @restaurant.cuisine_id = params[:cuisine_id]
+        @restaurant = @current_user.restaurants.build(restaurant_params)
+

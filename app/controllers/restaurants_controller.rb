@@ -24,21 +24,22 @@ class RestaurantsController < ApplicationController
         @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
     end
 
-    def create
-        @restaurant = Restaurant.new(restaurant_params)
-        # @restaurant = Restaurant.find_or_initialize_by(restaurant_name: params[:restaurant_name]) do |restaurant|
-            # restaurant.assign_attributes(restaurant_params)
+    def create   
+        # @restaurant = Restaurant.find_or_initialize_by(restaurant_name: params[:restaurant][:restaurant_name]) do |restaurant|
+        #     restaurant.assign_attributes(restaurant_params)
         # end
-        # @restaurant.cuisine_id = params[:cuisine_id]
-        @restaurant.user_id = session[:user_id]     
-        # @restaurant = @current_user.restaurants.build(restaurant_params)
-        if @restaurant.save #where validations happen
-            redirect_to restaurant_path(@restaurant)
-
-        else
-            render :new
+        @restaurant = Restaurant.find_by(restaurant_name: params[:restaurant][:restaurant_name])
+            if @restaurant
+                flash[:message] = "This Restaurant already exists, you can review it or create a different one"
+                redirect_to restaurants_path
+            else
+                @restaurant = Restaurant.new(restaurant_params)
+                @restaurant.user_id = session[:user_id]   
+                @restaurant.save #where validations happen
+                redirect_to restaurant_path(@restaurant)
+            end
         end
-    end
+
 
     def edit
         #already finds the restaurant
