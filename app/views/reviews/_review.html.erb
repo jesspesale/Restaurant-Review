@@ -1,10 +1,8 @@
+
 <p c><strong>Rating:</strong> <%= review.rating %></p>
 <p c><strong>Description: </strong><%= review.content %></p>
 <p c><strong>Reviewd By: </strong><%= review.user.name %> </p>
-<br>
 
-
-<br>
 <% if logged_in? %>
 
     <% if review.user_id == current_user.id %>
@@ -14,3 +12,5 @@
         <br>
     <% end %>
 <% end %>
+<br>
+<br>

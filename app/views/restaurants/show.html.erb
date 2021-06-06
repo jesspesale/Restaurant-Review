@@ -4,18 +4,21 @@
 <h2>State: <%= @restaurant.state %></h2>
 <h2>Cuisine: <%= @restaurant.cuisine.name %></h2>
 <br>
-<br>
 
 <% if logged_in? %>
-
     <% if @restaurant.user_id == current_user.id %>
         <%= link_to "Edit", edit_restaurant_path(@restaurant) %>
         <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{@restaurant.restaurant_name}?" } %>
     <br>
+    <br>
+<%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
     <% end %>
 <% end %>
 
 <br>
+<br>
+<br>
+
 <div class="row">
 
 	<div class="col-md-4">
@@ -24,17 +27,9 @@
         <h2>Reviews</h2>
     <%= render @restaurant.reviews %>
 <!-- will render all the reviews for this restaurant from review partial-->
-
 <br>
-
-<%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
-
 		</div>	
 
 	</div>
 
 </div>
-<br>
-<br>
-
-<%= link_to "Back", restaurants_path %>
