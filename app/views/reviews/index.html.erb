@@ -2,8 +2,10 @@
 
 <ol>
 <% @reviews.each do |review| %>
+
 <li><h4>Review for <%= review.restaurant.restaurant_name %> </h4></li>
     <ul>
+    <%= link_to "See Review", review_path(review) %>
     <li>Rating: <%= review.rating %></li>
     <li>Description: <%= review.content %></li> 
     <li>Posted by: <%= review.user.name %></li> 

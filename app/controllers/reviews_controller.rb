@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @restaurant = Restaurant.find_by(id: params[:id])
+        @restaurant = Restaurant.find_by_id(params[:review][:restaurant_id])
         @review = Review.find_by_id(params[:id])
         # byebug
         if @review.update(review_params)
