@@ -7,6 +7,7 @@ class Restaurant < ApplicationRecord
     has_many :users, through: :reviews #people who have reviewd it
 
     validates :restaurant_name, presence: true
+    validates :cuisine, presence: true
 
     def cuisine_attributes=(attr)
         # byebug

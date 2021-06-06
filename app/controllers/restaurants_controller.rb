@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
      end
 
     def show
+        # byebug
         # @user = current_user.id
     end
 
