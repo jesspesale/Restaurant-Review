@@ -2,13 +2,10 @@ class RestaurantsController < ApplicationController
     before_action :require_login, except: [:index, :show]
     before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
     before_action :current_user
-    # before_action :authenticate_user, except: [:index, :show]
-        # makes sure a user is signed in before clicking link or else sent to sign in page
+
 
     def index
-        # if params[:restaurant_id]
             @restaurants = Restaurant.all
-        # end
      end
 
     def show
@@ -23,6 +20,7 @@ class RestaurantsController < ApplicationController
     end
 
     def create   
+        @cuisines = ["Mexican", "Asian", "Italian", "American", "Seafood", "Other"]
         @restaurant = Restaurant.find_by(restaurant_name: params[:restaurant][:restaurant_name])
             if @restaurant
                 flash[:message] = "This Restaurant already exists, you can review it or create a different one"
@@ -38,12 +36,10 @@ class RestaurantsController < ApplicationController
 
     def edit
         #already finds the restaurant with before action
-        @restaurant.build_cuisine
     end
 
     def update
         if @restaurant.update(restaurant_params)
-            @restaurant.build_cuisine
             redirect_to restaurant_path(@restaurant)
         else
             render :edit
@@ -55,6 +51,7 @@ class RestaurantsController < ApplicationController
         @restaurant.destroy
         redirect_to user_path(@current_user)
     end
+
 
     private
 

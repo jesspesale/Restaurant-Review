@@ -41,15 +41,15 @@ Specs:
 
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
 
-Log in with Google
+    Log in with Google
 
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)
 	
         Restaurants/1/reviews
 
-  resources :restaurants do 
-    resources :reviews, only: [:new, :index]
-  end
+    resources :restaurants do 
+        resources :reviews, only: [:new, :index]
+    end
 
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 	

@@ -15,9 +15,7 @@
     <%= f.text_field :state %>
     <br>
     <br>
-        <%= f.fields_for :cuisine, Cuisine.new do |c| %>
-        <%= c.label :name, "Cuisine:" %>
-        <%= c.text_field :name %>
+    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: true, :selected => @restaurant.cuisine_id %>
     <% end %>
     <br>
     <br>

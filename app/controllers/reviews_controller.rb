@@ -3,11 +3,9 @@ class ReviewsController < ApplicationController
    
 
     def index
-        #if nested, only show reviews for that restaurant
-        if params[:restaurant_id] 
+        if params[:restaurant_id]  #if nested, only show reviews for that restaurant
             @restaurant = Restaurant.find_by_id(params[:restaurant_id])
             @reviews = @restaurant.reviews
-            # byebug
         else    #else just show all the reviews in the db
             @reviews = Review.all
         end
@@ -29,7 +27,6 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
         @review.user_id = current_user.id
-            # When a user writes a new review, the user id will be assigned to them
         if @review.save 
             redirect_to review_path(@review)
         else
@@ -45,7 +42,6 @@ class ReviewsController < ApplicationController
     def update
         @restaurant = Restaurant.find_by_id(params[:review][:restaurant_id])
         @review = Review.find_by_id(params[:id])
-        # byebug
         if @review.update(review_params)
             redirect_to restaurant_path(@restaurant)
         else
@@ -64,10 +60,6 @@ class ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:rating, :content, :restaurant_id)
     end
-
-    # def find_restaurant
-    #     @restaurant = Restaurant.find_by(id: params[:id])
-    # end
 
     
 end
