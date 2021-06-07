@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new"
    #the resourse :users gives us the post users for users create
 
+  # get "/auth/google_oauth2/callback", to:   'sessions#google' 
+  # Routes for Google authentication
+get 'auth/:provider/callback', to: 'sessions#google'
+get 'auth/failure', to: redirect('/')
+
   delete '/logout', to: "sessions#destroy"
 
   resources :reviews

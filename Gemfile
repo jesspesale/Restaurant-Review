@@ -16,6 +16,16 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# OmniAuth Gems
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
+gem "omniauth-google-oauth2"
+gem 'dotenv-rails'
+gem 'thin'
+#allows us to use .env file and have access to it in the app
+
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

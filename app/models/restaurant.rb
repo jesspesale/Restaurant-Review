@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
     belongs_to :cuisine #gives .cuisine and .cuisine= methods
-    accepts_nested_attributes_for :cuisine
+    # accepts_nested_attributes_for :cuisine
     #allows you to save the new cuisine in the db through restaurants
     # creates a cuisine_attributes=(attr) method
     has_many :reviews, dependent: :destroy

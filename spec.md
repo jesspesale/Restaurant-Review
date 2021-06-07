@@ -29,9 +29,9 @@ Specs:
 
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
-	Review: validates content and rating are present
-	Restaurant: validates name is present
-	User: validates email is unique and name is present
+	Review:     validates content and rating are present
+	Restaurant: validates name and cuisine are present
+	User:       validates email is unique and name is present
 
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 
