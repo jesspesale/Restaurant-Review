@@ -1,8 +1,8 @@
 <h1><%= @restaurant.restaurant_name %></h1>
 
-<h2>City: <%= @restaurant.city %></h2>
-<h2>State: <%= @restaurant.state %></h2>
-<h2>Cuisine: <%= @restaurant.cuisine.name %></h2>
+<h3>City: <%= @restaurant.city %></h3>
+<h3>State: <%= @restaurant.state %></h3>
+<h3>Cuisine: <%= @restaurant.cuisine.name %></h3>
 <br>
 <p>Created by: <%= @user.name %></p>
 <br>
@@ -19,6 +19,7 @@
 <br>
 <br>
 <br>
+<%= link_to "#{@restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant) %>
 
 <div class="row">
 

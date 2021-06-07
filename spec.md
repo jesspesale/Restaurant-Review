@@ -27,7 +27,7 @@ Specs:
     
     Reviews - have content and a rating
 
-- [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+- [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
 	Review:     validates content and rating are present
 	Restaurant: validates name and cuisine are present

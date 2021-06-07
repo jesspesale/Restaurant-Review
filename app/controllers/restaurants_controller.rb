@@ -6,12 +6,15 @@ class RestaurantsController < ApplicationController
         # makes sure a user is signed in before clicking link or else sent to sign in page
 
     def index
-        @restaurants = Restaurant.all
+        # if params[:restaurant_id]
+            @restaurants = Restaurant.all
+        # end
      end
 
     def show
         @user = current_user
         # byebug
+        # @reviews = self.reviews.high_rated
     end
 
     def new

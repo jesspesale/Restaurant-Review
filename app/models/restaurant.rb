@@ -9,12 +9,22 @@ class Restaurant < ApplicationRecord
     validates :restaurant_name, presence: true
     validates :cuisine, presence: true
 
-    def cuisine_attributes=(attr)
-        # byebug
-        #find or create a cuisine with the name thats passed in
-        self.cuisine = Cuisine.find_or_create_by(name: attr[:name])
-        # associate the cuisine with the restaurant
+    scope :high_rated, -> {where("review.rating > 3")}
+
+
+    def average_rating
+        if self.reviews.count == 0
+            "No reviews"
+        else
+            self.reviews.average(:rating).to_f.round(2)
+        end
     end
+
+    # def cuisine_attributes=(attr)
+    #     #find or create a cuisine with the name thats passed in
+    #     self.cuisine = Cuisine.find_or_create_by(name: attr[:name])
+    #     # associate the cuisine with the restaurant
+    # end
 
 
 end
