@@ -11,6 +11,15 @@
     <li>Posted by: <%= review.user.name %></li> 
     </ul>
 
+    <% if logged_in? %>
+
+    <% if review.user_id == current_user.id %>
+        <%= link_to "Edit", edit_review_path(review) %>  or  
+        <%= link_to "Delete", review_path(review), method: :delete, data: {confirm: "Are you sure?" } %>
+    <br>
+        <% end %>
+<% end %>
+
     
     <br>
     <% end %>
@@ -24,8 +33,6 @@
     <%= link_to "Sign Up", signup_path  %>
     <br>
     <%= link_to "Log In", login_path %>
-<% else %>
-    <%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
 <% end %>
 
 <br>

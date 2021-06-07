@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
 
     def index
         #if nested, only show reviews for that restaurant
-        if params[:restaurant_id] && @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        if params[:restaurant_id] 
+            @restaurant = Restaurant.find_by_id(params[:restaurant_id])
             @reviews = @restaurant.reviews
             # byebug
         else    #else just show all the reviews in the db

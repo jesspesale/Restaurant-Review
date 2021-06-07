@@ -1,3 +1,4 @@
+<div class="container">
 <h1><%= @restaurant.restaurant_name %></h1>
 
 <h3>City: <%= @restaurant.city %></h3>
@@ -19,7 +20,7 @@
 <br>
 <br>
 <br>
-<%= link_to "#{@restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant) %>
+<%= link_to "All #{@restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant) %>
 
 <div class="row">
 
@@ -31,7 +32,7 @@
         <h4>There are no reviews for <%= @restaurant.restaurant_name %> yet.</h4>
     <% else %>
         <h2>Reviews</h2>
-    <%= render @restaurant.reviews %>
+    <%= render @restaurant.reviews.first(3) %>
 <!-- will render all the reviews for this restaurant from review partial-->
     <% end %>
 <br>
@@ -39,4 +40,5 @@
 
 	</div>
 
+</div>
 </div>
