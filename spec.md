@@ -39,7 +39,9 @@ Specs:
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise)
 
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth)
+
+Log in with Google
 
 - [ ] Include nested resource show or index (URL e.g. users/2/recipes)
 	
@@ -61,4 +63,4 @@ Confirm:
 - [ ] The application is pretty DRY
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] Views use partials if appropriate

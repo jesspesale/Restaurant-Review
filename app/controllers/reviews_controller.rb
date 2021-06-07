@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :require_login  , except: [:index, :show]
    
-    #before_action !:authenticate_user ??
 
     def index
         #if nested, only show reviews for that restaurant
@@ -14,6 +13,7 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find_by_id(params[:id])
+        @restaurant = @review.restaurant
     end
 
     def new

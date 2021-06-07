@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     end
 
     def create #does the user exist in our system
-        # byebug
         if (params[:user][:email]) == "" || (params[:user][:password]) == ""
             
             flash[:message] = "Invalid email or password, please try again."

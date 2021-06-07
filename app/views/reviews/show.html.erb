@@ -1,5 +1,5 @@
 
-<h1>Review for - <%= @review.restaurant.restaurant_name %></h1>
+<h1>Review for <%= link_to "#{@review.restaurant.restaurant_name}", restaurant_path(@restaurant) %></h1>
 <br>
 <h2>Rating (1-5): <%= @review.rating %>
 <h2>Description: <%= @review.content %></h2>

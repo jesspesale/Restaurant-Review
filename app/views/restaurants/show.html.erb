@@ -4,7 +4,8 @@
 <h2>State: <%= @restaurant.state %></h2>
 <h2>Cuisine: <%= @restaurant.cuisine.name %></h2>
 <br>
-
+<p>Created by: <%= @user.name %></p>
+<br>
 <% if logged_in? %>
     <% if @restaurant.user_id == current_user.id %>
         <%= link_to "Edit", edit_restaurant_path(@restaurant) %>
@@ -24,9 +25,14 @@
 	<div class="col-md-4">
 
 		<div class="reviews">
+
+    <% if @restaurant.reviews == [] %>
+        <h4>There are no reviews for <%= @restaurant.restaurant_name %> yet.</h4>
+    <% else %>
         <h2>Reviews</h2>
     <%= render @restaurant.reviews %>
 <!-- will render all the reviews for this restaurant from review partial-->
+    <% end %>
 <br>
 		</div>	
 

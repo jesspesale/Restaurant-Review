@@ -7,17 +7,11 @@ class RestaurantsController < ApplicationController
 
     def index
         @restaurants = Restaurant.all
-    #     if params[:cuisine].blank?      - if we get the drop down menu to work
-    #         @restaurants = Restaurant.all
-    #     else
-    #         @cuisine_id = Cuisine.find_by(name: params[:cuisine]).id
-    #         @restaurants = Cuisine.where(:cuisine_id => @cuisine_id)
-    #     end
      end
 
     def show
+        @user = current_user
         # byebug
-        # @user = current_user.id
     end
 
     def new
@@ -26,9 +20,6 @@ class RestaurantsController < ApplicationController
     end
 
     def create   
-        # @restaurant = Restaurant.find_or_initialize_by(restaurant_name: params[:restaurant][:restaurant_name]) do |restaurant|
-        #     restaurant.assign_attributes(restaurant_params)
-        # end
         @restaurant = Restaurant.find_by(restaurant_name: params[:restaurant][:restaurant_name])
             if @restaurant
                 flash[:message] = "This Restaurant already exists, you can review it or create a different one"
@@ -43,7 +34,7 @@ class RestaurantsController < ApplicationController
 
 
     def edit
-        #already finds the restaurant
+        #already finds the restaurant with before action
         @restaurant.build_cuisine
     end
 
