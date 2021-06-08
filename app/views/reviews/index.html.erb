@@ -1,15 +1,18 @@
-<h1>All the reviews</h1>
-
+<% if @reviews.count >= 1 %>
+    <h1>Reviews</h1>
+<% else %>
+    <h2>Sorry there are no reviews for <%= @restaurant.restaurant_name %> yet. </h2>
+<% end %>
+<br>
 <ol>
 <% @reviews.each do |review| %>
 
-<li><h4>Review for <%= review.restaurant.restaurant_name %> </h4></li>
-    <ul>
+<li><h4><%= review.restaurant.restaurant_name %> </h4></li>
+    
     <%= link_to "See Review", review_path(review) %>
-    <li>Rating: <%= review.rating %></li>
-    <li>Description: <%= review.content %></li> 
-    <li>Posted by: <%= review.user.name %></li> 
-    </ul>
+    <p>Rating: <%= review.rating %></p>
+    <p>Description: <%= review.content %></p> 
+    <p>Posted by: <%= review.user.name %></p> 
 
     <% if logged_in? %>
 

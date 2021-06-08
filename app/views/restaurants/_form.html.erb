@@ -16,7 +16,6 @@
     <br>
     <br>
     <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: true, :selected => @restaurant.cuisine_id %>
-    <% end %>
     <br>
     <br>
     <%= f.submit %>
