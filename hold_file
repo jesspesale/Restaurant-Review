@@ -153,3 +153,23 @@ Cusine Drop down in layout folder
           <% end %>
         </ul>
       </li>
+
+
+
+_review partial
+
+<p c><strong>Rating:</strong> <%= review.rating %></p>
+<p c><strong>Description: </strong><%= review.content %></p>
+<p c><strong>Reviewd By: </strong><%= review.user.name %> </p>
+
+<% if logged_in? %>
+
+    <% if review.user_id == current_user.id %>
+        <%= link_to "Edit Review", edit_review_path(review) %>
+        <br>
+        <%= link_to "Delete Review", review_path(review), method: 'delete', data: {confirm: "Are you sure you want to delete this review?"} %>
+        <br>
+    <% end %>
+<% end %>
+<br>
+<br>

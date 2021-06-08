@@ -9,3 +9,6 @@
     Cuisine.create(name: "Mexican")
     Cuisine.create(name: "Italian")
     Cuisine.create(name: "American")
+    Cuisine.create(name: "Asian")
+    Cuisine.create(name: "Seafood")
+    Cuisine.create(name: "Other")
