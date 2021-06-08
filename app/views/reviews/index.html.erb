@@ -9,10 +9,9 @@
 
 <li><h4><%= review.restaurant.restaurant_name %> </h4></li>
     
-    <%= link_to "See Review", review_path(review) %>
-    <p>Rating: <%= review.rating %></p>
-    <p>Description: <%= review.content %></p> 
-    <p>Posted by: <%= review.user.name %></p> 
+    <p><strong>Rating: </strong><%= review.rating %></p>
+    <p><strong>Description: </strong><%= review.content %></p> 
+    <p><strong>Posted by: </strong><%= review.user.name %></p> 
 
     <% if logged_in? %>
 

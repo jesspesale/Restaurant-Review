@@ -1,12 +1,12 @@
-
+<div class="container">
 <h1>Top Reviews for <%= @restaurant.restaurant_name %></h1>
+<br>
 
-<ul>
 <% @reviews.each do |review| %>
-    <li>Rating: <%= review.rating %></li>
-    <li>Description: <%= review.content %></li> 
-    <li>Posted by: <%= review.user.name %></li> 
-    </ul>
+    <p><strong>Rating: </strong><%= review.rating %></p>
+    <p><strong>Description: </strong><%= review.content %></p>
+    <p><strong>Posted by: </strong><%= review.user.name %></p> 
+
 
 
     <% if review.user_id == current_user.id %>
@@ -20,3 +20,4 @@
     <br>
     <% end %>
 </ul>
+</div>
