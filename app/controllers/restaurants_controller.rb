@@ -9,9 +9,8 @@ class RestaurantsController < ApplicationController
      end
 
     def show
-        @user = current_user
+        @reviews = @restaurant.reviews.high_rated
         # byebug
-        # @reviews = self.reviews.high_rated
     end
 
     def new

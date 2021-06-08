@@ -2,43 +2,39 @@
 <h1><%= @restaurant.restaurant_name %></h1>
 
 <h3>City: <%= @restaurant.city %></h3>
-<h3>State: <%= @restaurant.state %></h3>
+
+<% if @restaurant.address != "" %>
+    <h3>Address: <%= @restaurant.address %></h3>
+<% end %>
+
+<% if @restaurant.state != "" %>
+    <h3>State: <%= @restaurant.state %></h3>
+<% end %>
+
 <h3>Cuisine: <%= @restaurant.cuisine.name %></h3>
 <br>
-<p>Created by: <%= @user.name %></p>
 <br>
+
 <% if logged_in? %>
     <% if @restaurant.user_id == current_user.id %>
-        <%= link_to "Edit", edit_restaurant_path(@restaurant) %>
-        <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{@restaurant.restaurant_name}?" } %>
-    <br>
-    <br>
-<%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
+        <%= link_to "Edit #{@restaurant.restaurant_name}", edit_restaurant_path(@restaurant) %>
+        <br>
+        <%= link_to "Delete #{@restaurant.restaurant_name}", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{@restaurant.restaurant_name}?" } %>
     <% end %>
+<br>
+<br>
+    <%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
 <% end %>
 
 <br>
 <br>
 <br>
-<%= link_to "All #{@restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant) %>
-
-<div class="row">
-
-	<div class="col-md-4">
-
-		<div class="reviews">
-
     <% if @restaurant.reviews == [] %>
         <h4>There are no reviews for <%= @restaurant.restaurant_name %> yet.</h4>
     <% else %>
-        <h2>Reviews</h2>
-    <%= render @restaurant.reviews.first(3) %>
-<!-- will render all the reviews for this restaurant from review partial-->
+    <%= link_to "All #{@restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant) %>
+    <%= render '/reviews/review' %>
+<!-- will render all the reviews for this restaurant from review partial first(3)-->
     <% end %>
 <br>
-		</div>	
-
-	</div>
-
-</div>
-</div>
+</div>	
