@@ -27,8 +27,13 @@ class RestaurantsController < ApplicationController
             else
                 @restaurant = Restaurant.new(restaurant_params)
                 @restaurant.user_id = session[:user_id]   
-                @restaurant.save #where validations happen
+                @restaurant.save                        #where validations happen
+                if !@restaurant.cuisine_id
+                    # flash[:message] = "You must pick a Cuisine before submitting the Restaurant"
+                    render :new
+                else
                 redirect_to restaurant_path(@restaurant)
+                end
             end
         end
 

@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
 
     has_secure_password
-        # gives us .authenticate method
         # says a validation for password is true
         # validates for password confirmation if there is one (can send in as a params)
 

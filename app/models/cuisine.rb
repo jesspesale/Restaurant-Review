@@ -4,5 +4,4 @@ class Cuisine < ApplicationRecord
 
     validates :name, uniqueness: true
 
-    @cuisines = ["Mexican", "Asian", "Italian", "American", "Seafood", "Other"]
 end
