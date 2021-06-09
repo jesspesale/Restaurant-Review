@@ -1,11 +1,10 @@
 <h1>Log in below</h1>
 
 <p><%= flash[:error] %></p>
-
-<%= form_for :user do |f| %>    <!-- can use a symbol instead of @ since we arent creating  -->
-<!-- a new user we are finding one that already exists - Dont need to pass in a blank user instance --> 
-    <%= f.label :email %>       
-    <%= f.email_field :email %> <!-- #gives automatic validations -->
+<br>
+<%= form_for :user do |f| %>    <!-- can use a symbol instead of @ since we arent creating a new user   -->                                
+    <%= f.label :email %>       <!-- we are finding one that already exists - Dont pass in a blank user instance --> 
+    <%= f.email_field :email %> 
     <br>
     <br>
     <%= f.label :password %>

@@ -1,5 +1,10 @@
-<h1>All the Restaurants</h1>
-<p id="message"><strong><%= flash[:message] %></strong></p>
+<div class="container">
+<% if @restaurants == [] %>
+    <h2>Sorry there are no restaurants yet.</h2>
+<% else %>
+
+<h1 class="underlined">All the Restaurants</h1>
+<br>
 <ol>
     <% @restaurants.each do |restaurant| %>
     <li>
@@ -28,15 +33,8 @@
 </ol>
 <br>
 <br>
-<% if !logged_in? %>
-    <br>
-    <div class="container">
-    <h4>Make Sure you Log in or Sign up if you want to add a restaurants</h4>
-    <%= link_to "Sign Up", signup_path  %>
-    <br>
-    <%= link_to "Log In", login_path %>
-    </div>
-<% else %>
-    <%= link_to "Add a new Restaurant", new_restaurant_path %>
 <% end %>
+<br>
+    <%= link_to "Add a new Restaurant", new_restaurant_path %>
 
+</div>

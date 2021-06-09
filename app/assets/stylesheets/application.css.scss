@@ -17,3 +17,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.underlined {
+    text-decoration: underline;
+}

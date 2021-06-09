@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RestaurantReview</title>
+    <title>Restaurant Review</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -25,9 +25,7 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-
-
-      <% if logged_in? %>
+    <% if logged_in? %>
         <li><%= link_to "Log Out", logout_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Log In", login_path %> </li>
@@ -38,7 +36,10 @@
     </div>
 
   </nav>
+  <div class="error">
   <%= flash[:message] if flash[:message] %>
+  </div>
     <%= yield %>
+
   </body>
 </html>

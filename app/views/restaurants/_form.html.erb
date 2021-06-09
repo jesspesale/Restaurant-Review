@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for @restaurant do |f| %>
     <%= f.label :restaurant_name %>
     <%= f.text_field :restaurant_name %>
@@ -15,9 +16,11 @@
     <%= f.text_field :state %>
     <br>
     <br>
+    <%= f.label :cuisine, "Choose a Cuisine" %>
     <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: true, :selected => @restaurant.cuisine_id %>
     <br>
     <br>
     <%= f.submit %>
     <br>
 <% end %>
+</div>

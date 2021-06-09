@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
         @cuisines = ["Mexican", "Asian", "Italian", "American", "Seafood", "Other"]
         @restaurant = Restaurant.find_by(restaurant_name: params[:restaurant][:restaurant_name])
             if @restaurant
-                flash[:message] = "This Restaurant already exists, you can review it or create a different one"
+                flash[:message] = "A Restaurant with this name already exists, you can either review it or add a new one."
                 redirect_to restaurants_path
             else
                 @restaurant = Restaurant.new(restaurant_params)
@@ -46,7 +46,6 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-        # byebug
         @restaurant.destroy
         redirect_to user_path(@current_user)
     end

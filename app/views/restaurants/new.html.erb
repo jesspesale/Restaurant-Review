@@ -1,3 +1,4 @@
+<div class="container">
 <% if !logged_in? %>
     <br>
     <div class="container">
@@ -8,7 +9,8 @@
     </div>
 <% else %>
 
-<h1>Add a new Restaurant: </h1>
+<h1 class="underlined">Add a new Restaurant: </h1>
+<br>
 
 <%= render partial: 'layouts/error_messages', locals: {instance: @restaurant} %>
 
@@ -16,3 +18,4 @@
 
 
 <% end %>
+</div>
