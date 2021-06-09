@@ -30,10 +30,13 @@ Specs:
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 
 	Review:     validates content and rating are present
-	Restaurant: validates name and cuisine are present
-	User:       validates email is unique and name is present
+	Restaurant: restaurnat_name ans cuisine are present
+	User:       validates email is unique and email and name are present
 
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+
+        scope :high_rated, -> {where("rating > 3")}
+        Only shows reviews with ratings higher than 3 on restaurant show page
 
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
@@ -56,11 +59,11 @@ Specs:
     restaurants/1/reviews/new
     a new review for "Swell Taco"
 
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
-
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
+        use flash messages and have an _error_messages partial for validations
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate

@@ -5,6 +5,6 @@ class Restaurant < ApplicationRecord
     has_many :users, through: :reviews 
 
     validates :restaurant_name, presence: true
-    # validates :cuisine_id, presence: true
+
 
 end
