@@ -15,14 +15,13 @@
     <p><strong>Description: </strong><%= review.content %></p> 
     <p><strong>Reviewed by: </strong><%= review.user.name %></p> 
 
-<% if logged_in? %>
-    <% if review.user_id == current_user.id %>
+    <% if authorized(review, current_user) %>
         <%= link_to "Edit", edit_review_path(review) %>  or  
         <%= link_to "Delete", review_path(review), method: :delete, data: {confirm: "Are you sure?" } %> <br>
         <% end %>
 <% end %>   <br>
-    <% end %>
 </ul>
+
 <br><br>
 <% if !logged_in? %>
     <br>

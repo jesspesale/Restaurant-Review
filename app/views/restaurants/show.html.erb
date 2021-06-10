@@ -15,8 +15,8 @@
 <br>
 <br>
 
-<% if logged_in? %>
-    <% if @restaurant.user_id == current_user.id %>
+
+    <% if authorized(@restaurant, current_user) %>
         <%= link_to "Edit #{@restaurant.restaurant_name}", edit_restaurant_path(@restaurant) %>
         <br>
         <%= link_to "Delete #{@restaurant.restaurant_name}", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{@restaurant.restaurant_name}?" } %>
@@ -24,7 +24,7 @@
 <br>
 <br>
     <%= link_to "Review #{@restaurant.restaurant_name}", new_restaurant_review_path(@restaurant) %>
-<% end %>
+
 
 <br>
 <br>
