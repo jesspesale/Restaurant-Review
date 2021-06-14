@@ -2,7 +2,7 @@
 <% if instance.errors.any? %>
   <div id="error_explanation" >
     
-  <ul>
+
   <% if instance.errors.full_messages.count > 1 %>
         <h4>Sorry there were some errors:</h4>
       <% else %>
@@ -10,9 +10,9 @@
       <% end %>
       
     <% instance.errors.full_messages.each do |message| %>
-        <li class="error"><%= message %></li>
+        <p class="error"><%= message %></p>
       <% end %>
-    </ul>
+
   </div>
 <% end %>
 <br>

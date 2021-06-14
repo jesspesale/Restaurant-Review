@@ -2,6 +2,7 @@
 <% if params[:restaurant_id] %>
     <%= render '/reviews/restaurantreviews' %>
 <% else %>
+
 <div class="container">
 <h1 class="underlined"> All Reviews</h1>
 <br>
@@ -18,8 +19,9 @@
     <% if authorized(review, current_user) %>
         <%= link_to "Edit", edit_review_path(review) %>  or  
         <%= link_to "Delete", review_path(review), method: :delete, data: {confirm: "Are you sure?" } %> <br>
-        <% end %>
-<% end %>   <br>
+    <% end %>
+<br>
+<% end %>   
 </ul>
 
 <br><br>

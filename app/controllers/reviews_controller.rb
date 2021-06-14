@@ -17,22 +17,21 @@ class ReviewsController < ApplicationController
     end
 
     def new
-        if @restaurant = Restaurant.find_by_id(params[:restaurant_id])
-            @review = @restaurant.reviews.build
-        else
-            @review = Review.new
-        end
+        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        @review = @restaurant.reviews.build
+
     end
 
     def create
         @review = Review.new(review_params)
+        @restaurant = Restaurant.find_by_id(params[:review][:restaurant_id])
         @review.user_id = current_user.id
         if @review.save 
             redirect_to review_path(@review)
         else
             render :new
         end
-    end
+     end
 
     def edit
         @restaurant = Restaurant.find_by(id: params[:id])

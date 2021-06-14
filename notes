@@ -1,15 +1,4 @@
- Want to add all the users restaurants to their show page
- <% if @user.restaurants %>
-    <h4>Here are the restaurants you created</h4>
-<br>
-        <ul>
-            <%= @user.restaurants.each do |restaurant| %>
-            <li><%= restaurant.restaurant_name %></li>
-            <% end %>
-        </ul>
-<% else %>  
-    <h4> You have not added any Restaurants yet.</h4>
-<% end %>
+
 
  On restaurant Index page - show which user created that restaurant
     <li>Added by: <%= restaurant.users.name %></li> ? is user "User"

@@ -10,12 +10,11 @@ class RestaurantsController < ApplicationController
 
     def show
         @reviews = @restaurant.reviews.high_rated
-        # byebug
     end
 
     def new
         @restaurant = Restaurant.new
-        @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
+        # @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
     end
 
     def create   
@@ -27,12 +26,11 @@ class RestaurantsController < ApplicationController
             else
                 @restaurant = Restaurant.new(restaurant_params)
                 @restaurant.user_id = session[:user_id]   
-                @restaurant.save                        #where validations happen
+                @restaurant.save                    #where validations happen
                 if !@restaurant.cuisine_id
-                    # flash[:message] = "You must pick a Cuisine before submitting the Restaurant"
                     render :new
                 else
-                redirect_to restaurant_path(@restaurant)
+                    redirect_to restaurant_path(@restaurant)
                 end
             end
         end

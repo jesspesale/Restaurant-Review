@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :restaurants, through: :reviews
 
 
-    validates :email, uniqueness: true, presence: true
+    validates :email, uniqueness: true, presence: true, format: {with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i}
     validates :name, presence: true
 
 
