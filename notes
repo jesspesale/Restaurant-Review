@@ -1,4 +1,5 @@
-
+Was in the new action in Restaurant Controller
+        # @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
 
  On restaurant Index page - show which user created that restaurant
     <li>Added by: <%= restaurant.users.name %></li> ? is user "User"

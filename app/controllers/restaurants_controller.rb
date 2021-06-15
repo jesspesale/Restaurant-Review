@@ -5,8 +5,8 @@ class RestaurantsController < ApplicationController
 
 
     def index
-            @restaurants = Restaurant.all
-     end
+        @restaurants = Restaurant.all
+    end
 
     def show
         @reviews = @restaurant.reviews.high_rated
@@ -14,14 +14,13 @@ class RestaurantsController < ApplicationController
 
     def new
         @restaurant = Restaurant.new
-        # @restaurant.build_cuisine #instantiates a cuisine so we have one in the new restaurant form
     end
 
     def create   
         @cuisines = ["Mexican", "Asian", "Italian", "American", "Seafood", "Other"]
         @restaurant = Restaurant.find_by(restaurant_name: params[:restaurant][:restaurant_name])
             if @restaurant
-                flash[:message] = "A Restaurant with this name already exists, you can either review it or add a new one."
+                flash[:message] = "A Restaurant with this name already exists, you can either review it or add one with a different name."
                 redirect_to restaurants_path
             else
                 @restaurant = Restaurant.new(restaurant_params)

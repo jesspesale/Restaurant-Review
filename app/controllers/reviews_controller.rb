@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     def new
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
         @review = @restaurant.reviews.build
-
+            #builds the review on top/ for that restaurant (with its ID)
     end
 
     def create
@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
         @restaurant = Restaurant.find_by_id(params[:review][:restaurant_id])
         @review = Review.find_by_id(params[:id])
         if @review.update(review_params)
-            redirect_to restaurant_path(@restaurant)
+            redirect_to review_path(@review)
         else
             render :edit
         end

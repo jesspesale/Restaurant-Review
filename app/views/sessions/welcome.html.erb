@@ -2,11 +2,13 @@
 <h1 >Welcome to Restaurant Review</h1>
 
 <h3>Please log in or sign up to begin!</h3>
-
-<p>
+<br>
+<p class="container">
     <%= link_to "Sign Up", signup_path  %>
     <br>
+    <br>
     <%= link_to "Log In", login_path %>
+    <br>
     <br>
     <%= link_to 'Log in or Sign up with Google!', '/auth/google_oauth2', method: :post %>
 </p>
