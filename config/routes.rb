@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   delete '/logout', to: "sessions#destroy"
   
+  get '/restaurants/ordered', to: "restaurants#ordered"
+
   resources :reviews
   resources :restaurants do 
     resources :reviews, only: [:new, :index]

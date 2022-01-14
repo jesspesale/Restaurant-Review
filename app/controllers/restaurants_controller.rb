@@ -12,6 +12,11 @@ class RestaurantsController < ApplicationController
         @reviews = @restaurant.reviews.high_rated
     end
 
+    def ordered
+        @restaurants = Restaurant.all.sort_restaurants
+        render :index
+    end
+
     def new
         @restaurant = Restaurant.new
     end

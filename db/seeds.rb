@@ -12,3 +12,6 @@
     Cuisine.create(name: "Asian")
     Cuisine.create(name: "Seafood")
     Cuisine.create(name: "Other")
+
+
+    # can run rake db:drop  ->  rake db:migrate  ->  rake db:seed 

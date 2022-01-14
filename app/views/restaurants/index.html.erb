@@ -18,14 +18,11 @@
     <%= link_to "Review #{restaurant.restaurant_name}", new_restaurant_review_path(restaurant) %>
     <br>
 
-
     <% if authorized(restaurant, current_user )%>
         <%= link_to "Edit", edit_restaurant_path(restaurant) %>  or  
         <%= link_to "Delete", restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure you want to delete #{restaurant.restaurant_name}?" } %>
     <br>
         <% end %>
-
-
     </li>
     <br>
     <br>

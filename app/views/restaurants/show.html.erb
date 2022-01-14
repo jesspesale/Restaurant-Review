@@ -1,7 +1,9 @@
 <div class="container">
 <h1 class="underlined"><%= @restaurant.restaurant_name %></h1>
 
-<h3>City: <%= @restaurant.city %></h3>
+<% if @restaurant.city != "" %>
+    <h3>City: <%= @restaurant.city %></h3>  
+<% end %>
 
 <% if @restaurant.address != "" %>
     <h3>Address: <%= @restaurant.address %></h3>
