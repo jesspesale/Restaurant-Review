@@ -1,4 +1,4 @@
-# Restaurnt Sage
+# Restaurnt Review
 Restaurant Review is a Ruby on Rails web application that helps people decided where to go and not to go out to eat.
 <br>
 As someone who is always looking for new places to go out to eat, I always like to hear other people expierences there before trying a new place. Restaurant Review is the perfect place to be able to add your own reviews and check out others to help decide what restaurant you should try next!
