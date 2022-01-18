@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html >
   <head>
+  <link href="app/assets/stylesheets/startbootstrap-grayscale-gh-pages/css/styles.css" rel="stylesheet" type="text/css" />
+  
     <title>Restaurant Review</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -12,19 +14,20 @@
 
   <body>
     
-  <nav class="navbar navbar-default"> <!--nav bar components -->
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;"> <!--nav bar components -->
     <div class="container">
       <!-- container add margin the the left and right of content and centers it -->
     <div class="navbar-header">
       <%= link_to "View all Restaurants", restaurants_path, class: "navbar-brand" %>
+      
+      <%= link_to "View all Reviews", reviews_path, class: "navbar-brand" %> 
     </div>   
     <ul class="nav navbar-nav">
 
-    <li><%= link_to "View all Reviews", reviews_path %> </li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-
+         <li><%= link_to "Home Page", root_path %></li>
     <% if logged_in? %>
         <li><%= link_to "Log Out", logout_path, method: :delete %></li>
       <% else %>

@@ -1,16 +1,15 @@
-<div class="container">
-<h1 >Welcome to Restaurant Review</h1>
+<div class="container text-center">
+<h1 class="underlined">Welcome to Restaurant Review!</h1>
 
 <h3>Please log in or sign up to begin!</h3>
 <br>
 <p class="container">
-    <%= link_to "Sign Up", signup_path  %>
-    <br>
-    <br>
-    <%= link_to "Log In", login_path %>
-    <br>
-    <br>
-    <%= link_to 'Log in or Sign up with Google!', '/auth/google_oauth2', method: :post %>
+    <br>    <br>
+    <%= link_to "Sign Up", signup_path, class: "small_links"  %>
+     &nbsp; &nbsp; 
+    <%= link_to "Log In", login_path, class: "small_links" %>
+    <br>    <br>
+    <%= link_to 'Log in / Sign up with Google!', '/auth/google_oauth2', class: "small_links", method: :post %>
 </p>
 
 </div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+# before the pound sign is a call to the controller
+# welcome is the method call in the controller
   root to: "sessions#welcome"
   get '/login', to: "sessions#new"
   post 'login', to: "sessions#create"
