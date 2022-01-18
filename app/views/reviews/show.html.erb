@@ -1,19 +1,20 @@
-
-<h2 class="underlined">Review for <%= link_to "#{@review.restaurant.restaurant_name}", restaurant_path(@restaurant) %></h2>
+<div class="container text-center">
+<h2><%= link_to "Review for #{@review.restaurant.restaurant_name}", restaurant_path(@restaurant), class:"rest_name" %></h2>
+<p class="attributes"><strong>Reviewed By:</strong> <%= @review.user.name %></p>
 <br>
-<h2>Rating (1-5): <%= @review.rating %>
-<h2>Description: <%= @review.content %></h2>
+<h2 class="attributes"><strong>Rating (1-5): </strong><%= @review.rating %>
+<h2 class="attributes"><strong>Description: </strong><%= @review.content %></h2>
 
 <br>
-<p><strong>Reviewed By:</strong> <%= @review.user.name %></p>
 <br>
     <% if authorized(@review, current_user) %>
-        <%= link_to "Edit Review", edit_review_path(@review) %>
+        <%= link_to "Edit Review", edit_review_path(@review), class: "small_links" %>
         <br>
-        <%= link_to "Delete Review", review_path(@review), method: 'delete', data: {confirm: "Are you sure you want to delete this review?"} %>
+        <%= link_to "Delete Review", review_path(@review), class: "small_links", method: 'delete', data: {confirm: "Are you sure you want to delete this review?"} %>
         <br>
     <% end %>
 <br>
 <br>
 <br>
  <%= link_to "All #{@review.restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant) %>
+ </div>
