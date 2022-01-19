@@ -4,14 +4,14 @@
 <ol>
 <% @reviews.each do |review| %>
 <li>
-    <p><strong>Review from: </strong><%= review.user.name %></p> 
-    <p><strong>Rating: </strong><%= review.rating %></p>
-    <p><strong>Description: </strong><%= review.content %></p> 
-
+    <p class="attributes"><strong>Review from: </strong><%= review.user.name %></p> 
+    <p class="attributes"><strong>Rating: </strong><%= review.rating %></p>
+    <p class="attributes"><strong>Description: </strong><%= review.content %></p> 
+<br><br>
 <% if logged_in? %>
     <% if review.user_id == current_user.id %>
-        <%= link_to "Edit", edit_review_path(review) %>  or  
-        <%= link_to "Delete", review_path(review), method: :delete, data: {confirm: "Are you sure?" } %> <br>
+        <%= link_to "Edit", edit_review_path(review), class: "small_links" %>  or  
+        <%= link_to "Delete", review_path(review), method: :delete, data: {confirm: "Are you sure?" }, class: "small_links" %> <br>
         <% end %>
 <% end %>   <br>
     <% end %>
@@ -27,4 +27,3 @@
 <% end %>
 </div>
 
-<%= link_to "Back", restaurant_path(@restaurant) %>

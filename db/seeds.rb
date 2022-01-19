@@ -15,3 +15,6 @@
 
 
     # can run rake db:drop  ->  rake db:migrate  ->  rake db:seed 
+
+    # <%= link_to "Back", restaurant_path(@restaurant) %>
+    # Back butto on review page?
