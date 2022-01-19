@@ -1,14 +1,14 @@
-<div class="container">
-<h1>Log in below</h1>
+<div class="container text-center">
+<h1 class="underlined">Log in:</h1>
 
 <p><%= flash[:error] %></p>
 <br>
 <%= form_for :user do |f| %>    <!-- can use a symbol instead of @ since we arent creating a new user   -->                                
-    <%= f.label :email %>       <!-- we are finding one that already exists - Dont pass in a blank user instance --> 
+    <%= f.label :email, class: "form_label" %>       <!-- we are finding one that already exists - Dont pass in a blank user instance --> 
     <%= f.email_field :email %> 
     <br>
     <br>
-    <%= f.label :password %>
+    <%= f.label :password, class: "form_label" %>
     <%= f.password_field :password %>
     <br>
     <br>

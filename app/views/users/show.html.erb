@@ -1,23 +1,13 @@
-<div class="container">
+<div class="container text-center">
 <h1 class="underlined">Welcome <%=@user.name %>!</h1>
 
 <h2>This is Restaurant Review</h2>
 <br>
-<p>Restaurant Review is used to check out reviews on restaurants to help you decide where to eat. You can add restaurants and review them. You can also review restaurants added by other users. Enjoy! </p>
+<h3 class="home_info">Restaurant Review is used to check out reviews on restaurants to help you decide where to eat. You can add restaurants and review them. You can also review restaurants added by other users. Enjoy! </h3>
 <br>
 
-
-<h3>You can view all restaruants that have been added already: </h3>
 <br>
-
-<div class="container"><%= link_to "View all Restaurants", restaurants_path %>
-</div>
-<br>
-<h3>Or add a new one yourself!</h3>
-<br>
-<div class="container">
-<%= link_to "Add a Restaurant", new_restaurant_path %>
-</div>
-
-
+<%= button_to "Add a new Restaurant", new_restaurant_path, :method => :get, class: "btn btn-outline-secondary" %>
+<h3>OR</h3>
+<%= button_to "View all Restaurants", restaurants_path, :method => :get, class: "btn btn-outline-secondary" %>
 </div>
