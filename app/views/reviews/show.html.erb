@@ -16,5 +16,6 @@
 <br>
 <br>
 <br>
- <%= link_to "All #{@review.restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant) %>
+<br>
+    <%= button_to "All #{@review.restaurant.restaurant_name} Reviews", restaurant_reviews_path(@restaurant), :method => :get, class: "btn btn-outline-secondary" %>
  </div>
