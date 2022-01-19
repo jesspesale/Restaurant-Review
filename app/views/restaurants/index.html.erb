@@ -16,7 +16,7 @@
     <%= link_to "Review #{restaurant.restaurant_name}", new_restaurant_review_path(restaurant), class: "small_links" %>
     <br>
     <% if authorized(restaurant, current_user )%>
-        <%= link_to "Edit", edit_restaurant_path(restaurant), class: "small_links" %>  or  
+        <%= link_to "Edit", edit_restaurant_path(restaurant), class: "small_links" %>    or    
         <%= link_to "Delete", restaurant_path(restaurant), class: "small_links", method: :delete, data: {confirm: "Are you sure you want to delete #{restaurant.restaurant_name}?" } %>
     <% end %>
 <br><br>
