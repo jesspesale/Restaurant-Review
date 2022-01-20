@@ -1,5 +1,9 @@
 <div class="container text-center">
 
+<% if @reviews == [] %>
+    <h2>Sorry there are no reviews yet.</h2>
+<% else %>
+
     <% if params[:restaurant_id] %>
         <%= render '/reviews/restaurantreviews' %>
     <% else %>
@@ -31,5 +35,6 @@
             <%= link_to "Log In", login_path %>
         <% end %>
     <br>
+<% end %>
 <% end %>
 </div>
