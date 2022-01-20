@@ -12,18 +12,21 @@
 
 ActiveRecord::Schema.define(version: 2021_05_30_170838) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cuisines", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.string "restaurant_name"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "cuisine"
+    t.text "restaurant_name"
+    t.text "address"
+    t.text "city"
+    t.text "state"
+    t.text "cuisine"
     t.integer "user_id"
     t.integer "cuisine_id"
     t.datetime "created_at", precision: 6, null: false
@@ -31,10 +34,10 @@ ActiveRecord::Schema.define(version: 2021_05_30_170838) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.integer "rating"
-    t.integer "user_id", null: false
-    t.integer "restaurant_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
@@ -42,9 +45,9 @@ ActiveRecord::Schema.define(version: 2021_05_30_170838) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.text "name"
+    t.text "email"
+    t.text "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
